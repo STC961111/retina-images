@@ -78,8 +78,7 @@ img {
   border: 0;
 }
 
-.img-flex,
-.img-flex img {
+.img-flex {
   display: block;
   width: 100%;
 }
@@ -329,7 +328,6 @@ svg.img-flex {
   width: 1px;
   border: 0;
   clip: rect(0 0 0 0);
-  clip-path: inset(50%);
 }
 
 .visually-hidden.focusable:active, .visually-hidden.focusable:focus {
@@ -339,7 +337,6 @@ svg.img-flex {
   position: static;
   width: auto;
   clip: auto;
-  clip-path: none;
 }
 
 .invisible {
@@ -608,21 +605,6 @@ svg.img-flex {
   height: 100%;
 }
 
-.height-win-quarter, .h-w-1-4 {
-  height: 25vh;
-  max-height: 46em;
-}
-
-.height-win-half, .h-w-1-2 {
-  height: 50vh;
-  max-height: 46em;
-}
-
-.height-win-full, .h-w-1 {
-  height: 100vh;
-  max-height: 46em;
-}
-
 ul {
   list-style-type: none;
 }
@@ -796,6 +778,8 @@ textarea {
   background-color: #fff;
   border: 2px solid #666;
   border-radius: 0;
+
+  vertical-align: middle;
 }
 
 label {
@@ -1002,8 +986,6 @@ select {
   text-decoration: none;
 }
 
-/* stylelint-disable no-descending-specificity */
-
 button,
 .btn {
   cursor: pointer;
@@ -1027,8 +1009,6 @@ button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-
-/* stylelint-enable */
 
 button:focus,
 button:hover,
@@ -1194,68 +1174,7 @@ a:focus, [tabindex="0"]:focus {
     width: auto;
     border: 0;
     clip: initial;
-    clip-path: none;
   }
-
-  /*
-   * (c) Fabien Sa || MIT License
-   *     http://bafs.github.io/Gutenberg/
-   */
-
-  table,
-  blockquote,
-  pre,
-  code,
-  figure,
-  li,
-  hr,
-  ul,
-  ol,
-  a,
-  tr {
-    page-break-inside: avoid;
-  }
-
-  h1, h2, h3, h4, h5, h6, p, a {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    page-break-after: avoid;
-    page-break-inside: avoid;
-  }
-
-  h1 + p,
-  h2 + p,
-  h3 + p,
-  h4 + p,
-  h5 + p,
-  h6 + p {
-    page-break-before: avoid;
-  }
-
-  img {
-    page-break-after: auto;
-    page-break-before: auto;
-    page-break-inside: avoid;
-  }
-
-  /* stylelint-disable declaration-no-important */
-
-  pre {
-    white-space: pre-wrap !important;
-    word-wrap: break-word;
-  }
-
-  /* stylelint-enable */
-
-  /* End Gutenberg code */
 
   /*
    * (c) HTML5 Boilerplate || MIT License
@@ -1292,10 +1211,26 @@ a:focus, [tabindex="0"]:focus {
     content: "";
   }
 
+  pre, blockquote {
+    page-break-inside: avoid;
+  }
+
   thead {
     display: table-header-group;
   }
 
-  /* End HTML5 Boilerplate code */
+  tr, img {
+    page-break-inside: avoid;
+  }
 
+  p, h1, h2, h3, h4, h5, h6 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  /* End HTML5 Boilerplate code */
 }
